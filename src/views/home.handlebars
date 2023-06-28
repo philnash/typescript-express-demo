@@ -1,0 +1,39 @@
+<div class="text-center margin-mobile my-4 mx-auto">
+  <h1>Pokedex</h1>
+</div>
+
+<div class="container d-flex flex-row flex-wrap justify-content-start align-items-center text-center mt-3">
+  {{#pokemon}}
+    <div class="col-6 col-md-4 col-lg-3 p-2">
+      <img alt="{{ description }}" title="{{ description }}" src="{{ imageUrl }}" />
+      <p>{{ name }} #{{ id }}</p>
+    </div>
+  {{/pokemon}}
+</div>
+<footer class="bg-dark text-center text-white">
+  <div class="container p-4">
+    <section>
+      <form action="/subscriptions#form" method="POST" id="form">
+        <div class="row d-flex justify-content-center">
+          <div class="col-auto">
+            <p class="pt-2"><strong>Subscribe to our Pokemon newsletter</strong></p>
+          </div>
+          <div class="col-md-5 col-12">
+            {{#if error}}
+              <div class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+            {{/if}}
+            <div class="form-outline form-white mb-4">
+              <input type="text" value="{{ email }}" class="form-control" id="input_email" name="email" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-outline-light mb-4">Subscribe</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</footer>
