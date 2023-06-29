@@ -131,7 +131,8 @@ sonar.projectKey={{YOUR_PROJECT_KEY}}
 sonar.organization={{YOUR_ORGANIZATION_KEY}}
 
 sonar.sources=src
-sonar.tests=src/tests
+sonar.exclusions=src/test/**/*
+sonar.tests=src/test
 sonar.language=ts
 sonar.javascript.coverage.reportPaths=coverage/lcov.info
 ```
