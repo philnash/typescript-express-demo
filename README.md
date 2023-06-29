@@ -30,7 +30,7 @@ Connected mode can also be shown by simply following the tutorial in the IDE, wh
 
 You will need Node.js installed in the environment. You can run the following command to install the required dependencies:
 
-```
+```sh
 npm install
 ```
 
@@ -90,7 +90,7 @@ We'll then enable CI-based analysis using the [SonarCloud GitHub Action](https:/
 - To the question "What option best describes your build?", select `Other`.
 - Update the `.github/workflow/test.yml` file to include the SonarCloud scan. For simplicity, the final file should look like this:
 
-```
+```yaml
 name: Node.js application
 
 on:
@@ -126,7 +126,7 @@ We still need to create the analysis configuration file:
 
 - Create a `sonar-project.properties` file the root of the repository. You can copy and paste the following (replace the placeholders with your project and organization keys)
 
-```
+```properties
 sonar.projectKey={{YOUR_PROJECT_KEY}}
 sonar.organization={{YOUR_ORGANIZATION_KEY}}
 
