@@ -8,17 +8,17 @@ The full set-up can either be done as part of the demo (takes about 15 minutes),
 
 When fully set-up, the concept of PR Quality Gate on new code can be shown as well as its independence from the main code issues. The application features basic, yet varied, issue types that can be detected by SonarCloud. In the PR, we have:
 
-[ ] A simple bug with no secondary location
-[ ] A bug with a secondary location on another file
-[ ] A classic taint analysis vulnerability
-[ ] A reflected XSS
-[ ] A "bad practice" code smell
-[ ] A code smell that is actually a bug
-[ ] A stylistic code smell
+- [ ] A simple bug with no secondary location
+- [ ] A bug with a secondary location on another file
+- [ ] A classic taint analysis vulnerability
+- [ ] A reflected XSS
+- [ ] A "bad practice" code smell
+- [ ] A code smell that is actually a bug
+- [ ] A stylistic code smell
 
 Additionally, we have security hotspots on the main branch:
 
-[ ] A slow regular expression, vulnerable to catastrophic backtracking
+- [ ] A slow regular expression, vulnerable to catastrophic backtracking
 
 When setting up CI-based analysis, import of code coverage will be done by default (in the enable-ci-analysis branch).
 
