@@ -26,3 +26,8 @@ jobs:
         run: echo DB_NAME=pokemon_test >> .env.test.local
       - name: Run tests
         run: npm test
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
