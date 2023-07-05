@@ -1,0 +1,19 @@
+<div
+  class="full-page d-flex flex-wrap justify-content-center align-items-center"
+>
+  <div
+    class="container d-flex flex-column flex-wrap justify-content-start align-items-center text-center py-5 m-auto margin-mobile"
+  >
+    {{#if pokemon}}
+    <h1>{{pokemon.name}} #{{{pokemonId}}} </h1>
+    <div
+      class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center mt-2"
+    >
+      <img src="{{pokemon.imageUrl}}" alt="{{pokemon.name}}" />
+    </div>
+    <p>{{pokemon.description}}</p>
+    {{else}}
+    <h1>404 - Pokemon #{{{pokemonId}}} not found</h1>
+    {{/if}}
+  </div>
+</div>

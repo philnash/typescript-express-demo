@@ -2,11 +2,13 @@
   <h1>Pokedex</h1>
 </div>
 
-<div class="container d-flex flex-row flex-wrap justify-content-start align-items-center text-center mt-3">
+<div
+  class="container d-flex flex-row flex-wrap justify-content-start align-items-center text-center mt-3"
+>
   {{#pokemon}}
     <div class="col-6 col-md-4 col-lg-3 p-2">
-      <img alt="{{ description }}" title="{{ description }}" src="{{ imageUrl }}" />
-      <p>{{ name }} #{{ id }}</p>
+      <img alt="{{description}}" title="{{description}}" src="{{imageUrl}}" />
+      <p><a href="/pokemon/{{id}}">{{name}} #{{id}}</a></p>
     </div>
   {{/pokemon}}
 </div>
@@ -21,16 +23,27 @@
           <div class="col-md-5 col-12">
             {{#if error}}
               <div class="alert alert-danger" role="alert">
-                {{ error }}
+                {{error}}
               </div>
             {{/if}}
             <div class="form-outline form-white mb-4">
-              <input type="text" value="{{ email }}" class="form-control" id="input_email" name="email" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <input
+                type="text"
+                value="{{email}}"
+                class="form-control"
+                id="input_email"
+                name="email"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">We'll never share your email
+                with anyone else.</div>
             </div>
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-outline-light mb-4">Subscribe</button>
+            <button
+              type="submit"
+              class="btn btn-outline-light mb-4"
+            >Subscribe</button>
           </div>
         </div>
       </form>
