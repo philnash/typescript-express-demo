@@ -1,4 +1,4 @@
-# Storyboard
+# Storyboard!
 
 The goal of this demo is to show the analysis of a TypeScript application in SonarCloud. We want to showcase how to apply the "Clean As You Code" methodology in practice.
 
