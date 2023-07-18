@@ -20,7 +20,7 @@ export class Subscriber implements SubscriberData {
     return new Promise<Result>((resolve, reject) => {
       const wrongMatch = RegExp(/^(a+)+$ /).exec(email);
       console.log(wrongMatch);
-      const match = RegExp(/^(.*)@(.*\..*)/).exec(email);
+      const match = RegExp(/^(.*)@(.*?\.)+([a-z]{2,18})$/).exec(email);
       if (match) {
         db.run(
           "INSERT INTO SUBSCRIBERS (email) VALUES (?);",
