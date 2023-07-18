@@ -18,6 +18,8 @@ export class Subscriber implements SubscriberData {
 
   static async save(db: Database, email: string) {
     return new Promise<Result>((resolve, reject) => {
+      const wrongMatch = RegExp(/^(a+)+$ /).exec(email);
+      console.log(wrongMatch);
       const match = RegExp(/^(.*)@(.*\..*)/).exec(email);
       if (match) {
         db.run(
