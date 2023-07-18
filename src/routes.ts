@@ -14,7 +14,7 @@ export async function home(_req: Request, res: Response) {
 }
 
 export async function getPokemon(req: Request, res: Response) {
-  const { pokemonId } = req.query;
+  const pokemonId = req.query.pokemonId;
   if (typeof pokemonId === "string") {
     try {
       const pokemon = await Pokemon.getById(db, pokemonId);
