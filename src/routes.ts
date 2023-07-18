@@ -1,5 +1,5 @@
 import { Request, Router, Response } from "express";
-import { Pokemon } from "./models/pokemon.js";
+import { NotFoundError, Pokemon } from "./models/pokemon.js";
 import { Subscriber } from "./models/subscriber.js";
 import { db } from "./db.js";
 
@@ -10,6 +10,28 @@ export async function home(_req: Request, res: Response) {
   } catch (error) {
     console.log(error);
     res.send("An error occurred, please try again later.");
+  }
+}
+
+export async function getPokemon(req: Request, res: Response) {
+  const pokemonId = req.query.pokemonId;
+  if (typeof pokemonId === "string") {
+    try {
+      const pokemon = await Pokemon.getById(db, pokemonId);
+      res.render("pokemon", { pokemon, pokemonId });
+    } catch (error) {
+      if (error instanceof NotFoundError) {
+        res
+          .status(404)
+          .render("pokemon", { error: "Pokemon not found", pokemonId });
+      } else {
+        res.status(500).send("An error occurred, please try again later.");
+      }
+    }
+  } else {
+    res
+      .status(404)
+      .render("pokemon", { error: "Pokemon not found", pokemonId });
   }
 }
 
@@ -36,3 +58,4 @@ export async function subscribe(req: Request, res: Response) {
 export const router = Router();
 router.get("/", home);
 router.post("/subscriptions", subscribe);
+router.get("/pokemon", getPokemon);

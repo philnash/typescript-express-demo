@@ -18,7 +18,9 @@ export class Subscriber implements SubscriberData {
 
   static async save(db: Database, email: string) {
     return new Promise<Result>((resolve, reject) => {
-      const match = RegExp(/^(.*)@(.*\..*)/).exec(email);
+      const wrongMatch = RegExp(/^(a+)+$ /).exec(email);
+      console.log(wrongMatch);
+      const match = RegExp(/^(.*)@(.*?\.)+([a-z]{2,18})$/).exec(email);
       if (match) {
         db.run(
           "INSERT INTO SUBSCRIBERS (email) VALUES (?);",
