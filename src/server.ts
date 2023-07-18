@@ -16,3 +16,7 @@ app.use(urlencoded({ extended: false }));
 app.use("/static", Express.static(join(__dirname, "public")));
 
 app.use("/", router);
+app.get("/vulnerable", (req, res) => {
+  const json = JSON.stringify({ data: req.query.input });
+  res.send(json);
+});
