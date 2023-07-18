@@ -59,3 +59,8 @@ export const router = Router();
 router.get("/", home);
 router.post("/subscriptions", subscribe);
 router.get("/pokemon", getPokemon);
+
+router.get("/vulnerable", (req, res) => {
+  const json = JSON.stringify({ data: req.query.input });
+  res.send(json);
+});
